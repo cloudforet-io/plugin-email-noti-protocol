@@ -25,7 +25,7 @@ class TestVoiceCallNotification(TestCase):
     }
     channel_data = {
         'email_list': [
-            ''
+            'abc@localhost'
         ],
     }
 
