@@ -15,16 +15,20 @@ class SMTPConnector(BaseConnector):
         super().__init__(*args, **kwargs)
         self.smtp = None
 
-    def set_smtp(self, host, port, mail, password):
+    def set_smtp(self, host, port, user, password):
         self.smtp = smtplib.SMTP(host, port)
+        self.smtp.connect(host, port)
+        self.smtp.ehlo()
         self.smtp.starttls()
-        self.smtp.login(mail, password)
+        self.smtp.ehlo()
+        self.smtp.login(user, password)
 
-    def send_email(self, to, subject, messages):
+    def send_email(self, mail_list, subject, messages):
+        to = ", ".join(mail_list)
+
         msg = MIMEText(messages)
         msg['To'] = to
         msg['Subject'] = subject
 
         self.smtp.sendmail(SENDER_EMAIL_ADDR, to, msg.as_string())
-
         self.smtp.quit()
