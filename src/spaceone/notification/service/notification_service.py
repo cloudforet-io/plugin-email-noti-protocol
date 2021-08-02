@@ -60,7 +60,8 @@ class NotificationService(BaseService):
         noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
         noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents)
 
-    def make_contents(self, message, notification_type):
+    @staticmethod
+    def make_contents(message, notification_type):
         markdown_text = f'# {message["title"]}\n' \
                         f'## Notification Type: {notification_type}\n' \
                         f'{message["description"]}\n'
