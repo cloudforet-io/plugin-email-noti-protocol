@@ -48,7 +48,7 @@ class NotificationService(BaseService):
 
         params_message = params['message']
         title = params_message['title']
-        contents = self.make_contents(params_message)
+        contents = self.make_contents(params_message, notification_type)
 
         smtp_host = secret_data.get('smtp_host', DEFAULT_SMTP_SERVER)
         smtp_port = secret_data.get('smtp_port', DEFAULT_SMTP_PORT)
@@ -58,8 +58,15 @@ class NotificationService(BaseService):
         email_list = channel_data.get('email_list')
 
         noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
-        noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list,
-                          params_message['title'], contents)
+        noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents)
 
-    def make_contents(self, message):
-        return message['description']
+    def make_contents(self, message, notification_type):
+        markdown_text = f'# {message["title"]}\n' \
+                        f'## Notification Type: {notification_type}\n' \
+                        f'{message["description"]}\n'
+
+        for tag in message.get('tags', []):
+            markdown_text = f'{markdown_text}\n' \
+                            f'* {tag["key"]}: {tag["value"]}\n'
+
+        return markdown_text

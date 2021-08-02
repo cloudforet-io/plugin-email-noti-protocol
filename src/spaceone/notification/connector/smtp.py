@@ -1,6 +1,8 @@
 import smtplib
-from email.mime.text import MIMEText
+import markdown
 import logging
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 from spaceone.core.connector import BaseConnector
 from spaceone.notification.conf.email_conf import *
@@ -23,12 +25,19 @@ class SMTPConnector(BaseConnector):
         self.smtp.ehlo()
         self.smtp.login(user, password)
 
-    def send_email(self, mail_list, subject, messages):
-        to = ", ".join(mail_list)
+    def send_email(self, mail_list, subject, messages, mark_down=None):
+        multipart_msg = MIMEMultipart("alternative")
 
-        msg = MIMEText(messages)
-        msg['To'] = to
-        msg['Subject'] = subject
+        multipart_msg["Subject"] = subject
+        multipart_msg["From"] = SENDER_EMAIL_ADDR
+        multipart_msg["To"] = to = ", ".join(mail_list)
 
-        self.smtp.sendmail(SENDER_EMAIL_ADDR, to, msg.as_string())
+        if mark_down:
+            contents = markdown.markdown(mark_down)
+        else:
+            contents = markdown.markdown(messages)
+
+        multipart_msg.attach(MIMEText(contents, 'html'))
+
+        self.smtp.sendmail(SENDER_EMAIL_ADDR, to, multipart_msg.as_string())
         self.smtp.quit()
