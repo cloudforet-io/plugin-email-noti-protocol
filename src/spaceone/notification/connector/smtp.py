@@ -35,7 +35,7 @@ class SMTPConnector(BaseConnector):
         if mark_down:
             contents = markdown.markdown(mark_down)
         else:
-            contents = markdown.markdown(messages)
+            contents = messages
 
         multipart_msg.attach(MIMEText(contents, 'html'))
 
