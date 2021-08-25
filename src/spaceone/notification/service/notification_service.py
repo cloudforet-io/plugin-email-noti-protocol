@@ -48,6 +48,8 @@ class NotificationService(BaseService):
         """
 
         secret_data = params.get('secret_data', {})
+        print(f'SECRET_DATA: {secret_data}')
+
         channel_data = params.get('channel_data', {})
         notification_type = params['notification_type']
 
