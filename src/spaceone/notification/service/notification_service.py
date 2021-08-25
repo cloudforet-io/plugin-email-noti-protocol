@@ -99,6 +99,7 @@ class NotificationService(BaseService):
         split_dir = full_path.split('/')[:-1]
         print(f'split_dir: {split_dir}')
         split_dir.append('templates')
+        split_dir[0] = '/'                     # root directory
         # return os.path.join(*split_dir, 'notification_template.html')
         template_path = os.path.join(*split_dir, 'notification_template.html')
         print(f'template_path: {template_path}')
