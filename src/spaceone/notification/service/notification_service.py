@@ -1,7 +1,10 @@
+import os
 import logging
+import time
+from jinja2 import Environment, FileSystemLoader
 
+from spaceone.core import utils
 from spaceone.core.service import *
-from spaceone.core.utils import parse_endpoint
 from spaceone.notification.manager.notification_manager import NotificationManager
 from spaceone.notification.conf.email_conf import *
 
@@ -31,7 +34,9 @@ class NotificationService(BaseService):
                         - options
                     - callbacks (list)
                         - url
+                        - label
                         - options
+                    - occured_at
                 - notification_type
                 - secret_data:
                     - smtp_host
@@ -43,6 +48,8 @@ class NotificationService(BaseService):
         """
 
         secret_data = params.get('secret_data', {})
+        print(f'SECRET_DATA: {secret_data}')
+
         channel_data = params.get('channel_data', {})
         notification_type = params['notification_type']
 
@@ -60,14 +67,46 @@ class NotificationService(BaseService):
         noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
         noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents)
 
+    def make_contents(self, message, notification_type):
+        env = Environment(loader=FileSystemLoader(searchpath="./"))
+        template = env.get_template(self.get_html_template_path())
+
+        template_kargs = {
+            'notification_type_color': self.get_notification_type_color(notification_type),
+            'title': message.get('title', ''),
+            'description': message.get('description', ''),
+            'tags': message.get('tags', []),
+            'callbacks': message.get('callbacks', [])
+        }
+
+        if 'link' in message:
+            template_kargs.update({
+                'link': message['link']
+            })
+
+        if 'occured_at' in message:
+            if occured_at := self.convert_occured_at(message['occured_at']):
+                template_kargs.update({
+                    'occured_at': occured_at
+                })
+
+        return template.render(**template_kargs)
+
     @staticmethod
-    def make_contents(message, notification_type):
-        markdown_text = f'# {message["title"]}\n' \
-                        f'## Notification Type: {notification_type}\n' \
-                        f'{message["description"]}\n'
+    def get_html_template_path():
+        full_path = os.path.split(__file__)[0]
+        split_dir = full_path.split('/')[:-1]
+        split_dir.append('templates')
 
-        for tag in message.get('tags', []):
-            markdown_text = f'{markdown_text}\n' \
-                            f'* {tag["key"]}: {tag["value"]}\n'
+        return os.path.join(*split_dir, 'notification_template.html')
 
-        return markdown_text
+    @staticmethod
+    def get_notification_type_color(notification_type):
+        return NOTIFICATION_TYPE_COLOR_MAP.get(notification_type, NOTIFICATION_TYPE_DEFAULT_COLOR)
+
+    @staticmethod
+    def convert_occured_at(occured_at):
+        if dt := utils.iso8601_to_datetime(occured_at):
+            return dt.strftime("%B %d, %Y %H:%M %p (UTC)")
+
+        return None
