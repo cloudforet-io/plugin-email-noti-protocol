@@ -44,7 +44,7 @@ class NotificationService(BaseService):
                     - user
                     - password
                 - channel_data
-                    - email_list
+                    - email
         """
 
         secret_data = params.get('secret_data', {})
@@ -60,7 +60,7 @@ class NotificationService(BaseService):
         user = secret_data.get('user', DEFAULT_SMTP_USER)
         password = secret_data.get('password', DEFAULT_SMTP_PASSWORD)
 
-        email_list = channel_data.get('email_list')
+        email_list = channel_data.get('email')
 
         noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
         noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents)
