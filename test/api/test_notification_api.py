@@ -25,9 +25,7 @@ class TestVoiceCallNotification(TestCase):
         'password': SMTP_PW
     }
     channel_data = {
-        'email_list': [
-            'abc@localhost'
-        ],
+        'email_list': 'abc@localhost, bbb@localhost'
     }
 
     def test_init(self):

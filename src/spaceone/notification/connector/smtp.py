@@ -30,7 +30,7 @@ class SMTPConnector(BaseConnector):
 
         multipart_msg["Subject"] = subject
         multipart_msg["From"] = SENDER_EMAIL_ADDR
-        multipart_msg["To"] = to = ", ".join(mail_list)
+        multipart_msg["To"] = mail_list
 
         if mark_down:
             contents = markdown.markdown(mark_down)
@@ -39,5 +39,5 @@ class SMTPConnector(BaseConnector):
 
         multipart_msg.attach(MIMEText(contents, 'html'))
 
-        self.smtp.sendmail(SENDER_EMAIL_ADDR, to, multipart_msg.as_string())
+        self.smtp.sendmail(SENDER_EMAIL_ADDR, mail_list.split(','), multipart_msg.as_string())
         self.smtp.quit()
