@@ -24,7 +24,7 @@ class ProtocolService(BaseService):
                             'minLength': 10,
                             'title': 'Email Address',
                             'type': 'string',
-                            'pattern': '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$',
+                            'pattern': '^([\w+-.%]+@[\w-.]+\.[A-Za-z]{2,4},?)+$',
                             'examples': ['user1@test.com']
                         }
                     },
