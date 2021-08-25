@@ -35,7 +35,6 @@ setup(
         'spaceone-api',
         'spaceone-tester',
     ],
-    package_data={'': ['notification_template.html']},
     include_package_data=True,
     zip_safe=False,
 )
