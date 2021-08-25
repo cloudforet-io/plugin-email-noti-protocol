@@ -95,10 +95,15 @@ class NotificationService(BaseService):
     @staticmethod
     def get_html_template_path():
         full_path = os.path.split(__file__)[0]
+        print(f'FULL PATH: {full_path}')
         split_dir = full_path.split('/')[:-1]
+        print(f'split_dir: {split_dir}')
         split_dir.append('templates')
+        # return os.path.join(*split_dir, 'notification_template.html')
+        template_path = os.path.join(*split_dir, 'notification_template.html')
+        print(f'template_path: {template_path}')
 
-        return os.path.join(*split_dir, 'notification_template.html')
+        return template_path
 
     @staticmethod
     def get_notification_type_color(notification_type):
