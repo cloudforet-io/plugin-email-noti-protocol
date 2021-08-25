@@ -3,3 +3,4 @@ spaceone-api
 spaceone-tester
 secure-smtplib
 markdown
+jinja2
