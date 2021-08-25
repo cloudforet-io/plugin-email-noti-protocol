@@ -1,6 +1,9 @@
 import os
 import logging
+import time
 from jinja2 import Environment, FileSystemLoader
+
+from spaceone.core import utils
 from spaceone.core.service import *
 from spaceone.notification.manager.notification_manager import NotificationManager
 from spaceone.notification.conf.email_conf import *
@@ -33,6 +36,7 @@ class NotificationService(BaseService):
                         - url
                         - label
                         - options
+                    - occured_at
                 - notification_type
                 - secret_data:
                     - smtp_host
@@ -63,8 +67,6 @@ class NotificationService(BaseService):
 
     def make_contents(self, message, notification_type):
         env = Environment(loader=FileSystemLoader(searchpath="./"))
-        
-        # template = env.get_template("/Users/bluese/PycharmProjects/plugins/plugin-email-notification-protocol/src/spaceone/notification/templates/notification_template.html")
         template = env.get_template(self.get_html_template_path())
 
         template_kargs = {
@@ -80,6 +82,12 @@ class NotificationService(BaseService):
                 'link': message['link']
             })
 
+        if 'occured_at' in message:
+            if occured_at := self.convert_occured_at(message['occured_at']):
+                template_kargs.update({
+                    'occured_at': occured_at
+                })
+
         return template.render(**template_kargs)
 
     @staticmethod
@@ -93,3 +101,10 @@ class NotificationService(BaseService):
     @staticmethod
     def get_notification_type_color(notification_type):
         return NOTIFICATION_TYPE_COLOR_MAP.get(notification_type, NOTIFICATION_TYPE_DEFAULT_COLOR)
+
+    @staticmethod
+    def convert_occured_at(occured_at):
+        if dt := utils.iso8601_to_datetime(occured_at):
+            return dt.strftime("%B %d, %Y %H:%M %p (UTC)")
+
+        return None
