@@ -68,7 +68,7 @@ class NotificationService(BaseService):
         noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents)
 
     def make_contents(self, message, notification_type):
-        env = Environment(loader=FileSystemLoader(searchpath="./"))
+        env = Environment(loader=FileSystemLoader(searchpath="/"))
         template = env.get_template(self.get_html_template_path())
 
         template_kargs = {
