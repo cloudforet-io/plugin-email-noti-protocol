@@ -39,7 +39,7 @@
                                     'DEFAULT': '#858895'
                                 -->
 
-                                <div style="border-bottom:1px solid #E5E5E8; height:1px; margin-bottom:20px"></div>
+                            <div style="border-bottom:1px solid #E5E5E8; height:1px; margin-bottom:20px"></div>
 
                             <div  style="border-left: 4px solid {{ notification_type_color }}; padding-left:10px; margin-bottom:27px; ">
                                 <h2 style="padding:0; margin:0; font-size:18px; padding-bottom:10px;">
@@ -56,7 +56,13 @@
                                 </h2>
                                 <p style=" padding:0; margin:0; font-size:14px; line-height:1.5;">
                                     {{ description }}
-                                    </p>
+                                </p>
+                            </div>
+
+                            <div>
+                                {% if image_url is defined %}
+                                <img src="{{ image_url }}" alt="Notification image">
+                                {% endif %}
                             </div>
                             <!--notification details-->
                             <div style="line-height:1.5;">
@@ -102,7 +108,7 @@
                                 style="padding-left:28px; padding-right:28px; padding-bottom:16px; font-size:14px; color:#858895;">
                                 Occurred at :
                                 <span style="font-weight:bold;">
-                                    {{ occured_at }}
+                                    {{ occurred_at }}
                                 </span>
                             </td>
                         </tr>
