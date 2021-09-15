@@ -78,15 +78,14 @@ class NotificationService(BaseService):
         }
 
         if 'link' in message:
-            template_kargs.update({
-                'link': message['link']
-            })
+            template_kargs.update({'link': message['link']})
 
-        if 'occured_at' in message:
-            if occured_at := self.convert_occured_at(message['occured_at']):
-                template_kargs.update({
-                    'occured_at': occured_at
-                })
+        if 'image_url' in message:
+            template_kargs.update({'image_url': message['image_url']})
+
+        if 'occurred_at' in message:
+            if occurred_at := self.convert_occured_at(message['occurred_at']):
+                template_kargs.update({'occurred_at': occurred_at})
 
         return template.render(**template_kargs)
 
