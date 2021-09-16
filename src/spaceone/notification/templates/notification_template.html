@@ -10,7 +10,7 @@
             bgcolor="#F7F7F7"
             style="background-color:#F7F7F7; padding:40px 0;">
         <tbody><tr>
-            <td  width="100%">
+            <td width="100%">
                 <table cellpadding="0" cellspacing="0"
                         width="600px" border="0" align="center" bgcolor="#FFFFFF"
                         style="border-collapse:collapse; border:0px; background-color:#FFFFFF; margin:0 auto;
@@ -41,7 +41,7 @@
 
                             <div style="border-bottom:1px solid #E5E5E8; height:1px; margin-bottom:20px"></div>
 
-                            <div  style="border-left: 4px solid {{ notification_type_color }}; padding-left:10px; margin-bottom:27px; ">
+                            <div style="border-left: 4px solid {{ notification_type_color }}; padding-left:10px; margin-bottom:27px; ">
                                 <h2 style="padding:0; margin:0; font-size:18px; padding-bottom:10px;">
                                     <strong>
                                         <!--If there is no link, delete 'a tag'-->
@@ -59,9 +59,9 @@
                                 </p>
                             </div>
 
-                            <div>
+                            <div style="width: 500px; text-align: center;">
                                 {% if image_url is defined %}
-                                <img src="{{ image_url }}" alt="Notification image">
+                                <img src="{{ image_url }}" alt="Notification image" style="width: 500px; height: auto;">
                                 {% endif %}
                             </div>
                             <!--notification details-->
