@@ -44,7 +44,7 @@ class TestVoiceCallNotification(TestCase):
             'message': {
                 'title': '[Alerting] Alert 테스트',
                 'link': 'https://google.com',
-                'image_url': 'https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/jal.png',
+                'image_url': 'https://spaceone-custom-assets.s3.ap-northeast-2.amazonaws.com/console-assets/test_img.png',
                 'description': '서버 장애가 발생하였습니다. SpaceONE 에서 자세한 정보를 확인해 주세요. Thresholds Crossed: 1 out of the last 1 datapoints [0.6085129343340805 (17/08/21 12:41:00)] was less than the lower thresholds [0.3762805693896841] or greater than the upper thresholds [0.5195178482046605] (minimum 1 datapoint for OK -> ALARM transition).',
                 'tags': [
                     {
