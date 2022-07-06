@@ -36,7 +36,7 @@ class NotificationService(BaseService):
                         - url
                         - label
                         - options
-                    - occured_at
+                    - occurred_at
                 - notification_type
                 - secret_data:
                     - smtp_host
