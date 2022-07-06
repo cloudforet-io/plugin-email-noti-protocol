@@ -1,6 +1,5 @@
 import os
 import logging
-import time
 from jinja2 import Environment, FileSystemLoader
 
 from spaceone.core import utils
@@ -84,7 +83,7 @@ class NotificationService(BaseService):
             template_kargs.update({'image_url': message['image_url']})
 
         if 'occurred_at' in message:
-            if occurred_at := self.convert_occured_at(message['occurred_at']):
+            if occurred_at := self.convert_occurred_at(message['occurred_at']):
                 template_kargs.update({'occurred_at': occurred_at})
 
         return template.render(**template_kargs)
@@ -102,8 +101,8 @@ class NotificationService(BaseService):
         return NOTIFICATION_TYPE_COLOR_MAP.get(notification_type, NOTIFICATION_TYPE_DEFAULT_COLOR)
 
     @staticmethod
-    def convert_occured_at(occured_at):
-        if dt := utils.iso8601_to_datetime(occured_at):
+    def convert_occurred_at(occurred_at):
+        if dt := utils.iso8601_to_datetime(occurred_at):
             return dt.strftime("%B %d, %Y %H:%M %p (UTC)")
 
         return None
