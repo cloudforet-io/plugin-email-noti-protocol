@@ -103,15 +103,16 @@
                     </tr>
                     </tbody>
                     <tfoot>
+                    {% if occurred_at is defined %}
                         <tr>
-                            <td colspan="2"
-                                style="padding-left:28px; padding-right:28px; padding-bottom:16px; font-size:14px; color:#858895;">
+                            <td colspan="2" style="padding-left:28px; padding-right:28px; padding-bottom:16px; font-size:14px; color:#858895;">
                                 Occurred at :
                                 <span style="font-weight:bold;">
                                     {{ occurred_at }}
                                 </span>
                             </td>
                         </tr>
+                    {% endif %}
                         <tr>
                             <td style="font-size:14px; color:#858895; padding-left:28px" >
                                 <div style="margin-bottom:40px;">
