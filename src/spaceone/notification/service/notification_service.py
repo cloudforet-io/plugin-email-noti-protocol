@@ -6,6 +6,8 @@ from spaceone.core import utils
 from spaceone.core.service import *
 from spaceone.notification.manager.notification_manager import NotificationManager
 from spaceone.notification.conf.email_conf import *
+from spaceone.notification.error.custom import *
+
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -25,8 +27,12 @@ class NotificationService(BaseService):
                 - options
                 - message
                     - title
-                    - markdown
+                    - link
                     - description
+                    - short_description
+                    - contents
+                    - content_type
+                    - image_url
                     - tags (list)
                         - key
                         - value
@@ -52,6 +58,7 @@ class NotificationService(BaseService):
 
         params_message = params['message']
         title = params_message['title']
+        self._check_validate_message(params_message)
         contents = self.make_contents(params_message, notification_type)
 
         smtp_host = secret_data.get('smtp_host', DEFAULT_SMTP_SERVER)
@@ -66,35 +73,49 @@ class NotificationService(BaseService):
 
     def make_contents(self, message, notification_type):
         env = Environment(loader=FileSystemLoader(searchpath="/"))
-        template = env.get_template(self.get_html_template_path())
 
-        template_kargs = {
+        template_kwargs = {
             'notification_type_color': self.get_notification_type_color(notification_type),
             'title': message.get('title', ''),
-            'description': message.get('description', ''),
-            'tags': message.get('tags', []),
             'callbacks': message.get('callbacks', [])
         }
 
-        if 'link' in message:
-            template_kargs.update({'link': message['link']})
+        if 'content_type' in message and message['content_type'] == 'HTML':
+            template = env.get_template(self.get_html_template_path('notification_template_include_html_contents.html'))
+            template_kwargs.update({
+                'contents': message.get('contents', '')
+            })
+        else:
+            template = env.get_template(self.get_html_template_path('notification_template.html'))
+            template_kwargs.update({
+                'description': message.get('description', ''),
+                'tags': message.get('tags', [])
+            })
 
-        if 'image_url' in message:
-            template_kargs.update({'image_url': message['image_url']})
+            if 'image_url' in message:
+                template_kwargs.update({'image_url': message['image_url']})
+
+        if 'link' in message:
+            template_kwargs.update({'link': message['link']})
 
         if 'occurred_at' in message:
             if occurred_at := self.convert_occurred_at(message['occurred_at']):
-                template_kargs.update({'occurred_at': occurred_at})
+                template_kwargs.update({'occurred_at': occurred_at})
 
-        return template.render(**template_kargs)
+        return template.render(**template_kwargs)
 
     @staticmethod
-    def get_html_template_path():
+    def _check_validate_message(message):
+        if 'content_type' in message and message['content_type'] not in ['HTML', 'MARKDOWN']:
+            raise ERROR_INVALID_MESSAGE(key='message.content_type', value=message['content_type'])
+
+    @staticmethod
+    def get_html_template_path(html_file_name):
         full_path = os.path.split(__file__)[0]
         split_dir = full_path.split('/')[:-1]
         split_dir.append('templates')
         split_dir[0] = '/'                     # root directory
-        return os.path.join(*split_dir, 'notification_template.html')
+        return os.path.join(*split_dir, html_file_name)
 
     @staticmethod
     def get_notification_type_color(notification_type):
