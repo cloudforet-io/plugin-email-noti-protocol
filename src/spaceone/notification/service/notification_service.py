@@ -73,20 +73,21 @@ class NotificationService(BaseService):
 
     def make_contents(self, message, notification_type):
         env = Environment(loader=FileSystemLoader(searchpath="/"))
-
         template_kwargs = {
+            'domain_name': message.get('domain_name', ''),
+            'notification_type': notification_type,
             'notification_type_color': self.get_notification_type_color(notification_type),
             'title': message.get('title', ''),
             'callbacks': message.get('callbacks', [])
         }
 
         if 'content_type' in message and message['content_type'] == 'HTML':
-            template = env.get_template(self.get_html_template_path('notification_template_include_html_contents.html'))
+            template = env.get_template(self.get_html_template_path('alert_notification_include_html_contents_template.html'))
             template_kwargs.update({
                 'contents': message.get('contents', '')
             })
         else:
-            template = env.get_template(self.get_html_template_path('notification_template.html'))
+            template = env.get_template(self.get_html_template_path('alert_notification_template.html'))
             template_kwargs.update({
                 'description': message.get('description', ''),
                 'tags': message.get('tags', [])

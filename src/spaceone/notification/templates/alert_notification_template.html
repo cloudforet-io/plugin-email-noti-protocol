@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <meta charset="UTF-8">
+    <style>
+        @media only screen and (max-width:800px) {
+            .stb-container {}
+            .stb-left-cell,
+            .stb-right-cell {
+                max-width: 100% !important;
+                width: 100% !important;
+                box-sizing: border-box;
+            }
+            .stb-image-box td {
+                text-align: center;
+            }
+            .stb-image-box td img {
+                width: 100%;
+            }
+            .stb-block {
+                width: 100%!important;
+            }
+            table.stb-cell {
+                width: 100%!important;
+            }
+            .stb-cell td,
+            .stb-left-cell td,
+            .stb-right-cell td {
+                width: 100%!important;
+            }
+            img.stb-justify {
+                width: 100%!important;
+            }
+        }
+        
+        .stb-left-cell p,
+        .stb-right-cell p {
+            margin: 0!important;
+        }
+        
+        .stb-container table.munged {
+            width: 100% !important;
+            table-layout: auto !important;
+        }
+        
+        .stb-container td.munged {
+            width: 100% !important;
+            white-space: normal !important;
+        }
+    </style>
+</head>
+
+<body style="width:100%;background-color:#F8F8FC;margin:0px;">
+    <div class="stb-container-full" style="width:100%;padding:40px 0;background-color:#F8F8FC;margin:0 auto;display:table;">
+        <table class="stb-container stb-option-outlook" cellpadding="0" cellspacing="0" border="0" bordercolor="#dedede" align="center" style="margin:0px auto;width:800px;max-width:800px;border-width:0;border: 0;border-style:solid;border-color:#dedede;box-sizing:border-box;;">
+            <tbody>
+                <tr style="margin: 0;padding:0;">
+                    <td style="width:100%;max-width:800px;margin:0 auto;position:relative;border-spacing:0;border:0;clear:both;border-collapse:separate;padding:0;overflow:hidden;_width:800px;">
+                        <div style="height:0px;max-height:0px;border-width:0px;border: 0px;border-color:initial;border-image:initial;visibility:hidden;line-height:0px;font-size:0px;overflow:hidden;display:none;"></div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-2" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:309px;width:309px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="309">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:15px 25px 5px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:309px;">
+                                                                                            <div style="text-align: left;">&nbsp;<span class="link-edited stb-bold stb-fore-colored" style="font-size: 26px; font-weight: bold; color: #6638b5;">{{ domain_name }}&nbsp;</span></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            {% if topic is defined %}
+                                                            <table class="stb-right-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:309px;width:309px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="right" width="309">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:15px 25px 5px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:309px;">
+                                                                                            <div style="text-align: right;"><span style="color: #858895; font-size: 14px;" class="stb-fore-colored">{{ topic }}</span></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            {% endif %}
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table border="0" cellpadding="0" cellspacing="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" align="left" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="padding:5px 25px 25px 25px;;border:0;">
+                                                                            <div style="height: 0;background: none;padding: 0px;border-top-width:1px;border-top-style:solid;border-top-color:#E5E5E8;margin:0 0;"></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <div style="border-left: 4px solid rgb({{ notification_type_color }}); padding:16px; background-color:rgba({{ notification_type_color }},0.07); border-radius:4px; margin-left:24px; margin-right:24px;">
+                                                                <h2 style="padding: 0px; margin: 0px; font-size: 18px; line-height: 1.7;"><span class="stb-bold" style="font-weight: bold;">
+                                                                    {% if link is defined %}
+                                                                    <a href="{{ link }}" target="_blank" style="color: rgb(34, 37, 50); text-decoration: none;">
+                                                                    {% endif %}
+                                                                        <span>[{{ notification_type }}]</span> {{ title }}
+                                                                    {% if link is defined %}
+                                                                    </a>
+                                                                    {% endif %}
+                                                                    </span>
+                                                                </h2>
+                                                                <p style="line-height:1.5;">
+                                                                    {{ description }}
+                                                                </p>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-cell" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="height: 25px"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {% if image_url is defined %}
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-cell" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="height: 25px">
+                                                                            <img src="{{ image_url }}" alt="Notification image">
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-cell" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="height: 25px"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        {% endif %}
+
+                        {% for tag in tags %}
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:800px;width:800px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="630">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:0px 25px 0px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:800px;">
+                                                                                            <div><span></span><span></span><span style="color: #858895; font-size: 14px;" class="stb-fore-colored">{{ tag['key'] }}</span></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:800px;width:800px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="630">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:0px 25px 15px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:800px;">
+                                                                                            <div><span></span><span></span><span>{{ tag['value'] }}</span></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        {% endfor %}
+
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-cell" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="height: 15px"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        {% for callback in callbacks %}
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:800px;width:800px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="630">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-cta-box" width="100%" style="clear:both;;">
+                                                                            <table border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:5px 25px 25px 25px;border:0;width:100%;text-align:left;">
+                                                                                            <table class="stb-cell-wrap-cta" border="0" cellpadding="0" cellspacing="0" width="auto" align="left" style="margin:0 auto;color:#ffffff;mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:separate!important;table-layout:fixed;background:#3C2C84;background-color:#3C2C84;border-radius:3px;border-width:1px;border-style:solid;border-color:#3C2C84;border:1px solid #3C2C84;mso-line-height-rule:exactly;line-height:16px;width:auto;">
+                                                                                                <tbody>
+                                                                                                    <tr>
+                                                                                                        <td style="background:#3C2C84;background-color:#3C2C84;border-radius:3px;text-align:left;padding:19px 20px;" valign="top" align="left"><a href="{{ callback['url'] }}" style="font-size:16px;display:inline;color:#ffffff;text-decoration:none;outline:0px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align:left;padding:0;width:auto;box-sizing:border-box;vertical-align:top;mso-line-height-rule:exactly;line-height:16px;"
+                                                                                                                target="_blank">{{ callback['label'] }}</a></td>
+                                                                                                    </tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                            <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation">
+                                                                                                <tbody>
+                                                                                                    <tr></tr>
+                                                                                                </tbody>
+                                                                                            </table>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        {% endfor %}
+
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-cell" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="height: 20px"></td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table border="0" cellpadding="0" cellspacing="0" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;" align="left" width="100%">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="padding:5px 25px 5px 25px;;border:0;">
+                                                                            <div style="height: 0;background: none;padding: 0px;border-top-width:1px;border-top-style:solid;border-top-color:#E5E5E8;margin:0 0;"></div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;background:#ffffff;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:800px;width:800px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="630">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:15px 25px 25px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:800px;">
+                                                                                            <div>
+                                                                                                {% if occurred_at is defined %}
+                                                                                                <span style="font-size: 14px; color: #0062b8;" class="stb-fore-colored">
+                                                                                                    <span style="font-weight: normal; font-style: normal;">
+                                                                                                        <span style="color: #232533;" class="stb-fore-colored">
+                                                                                                            <span style="color: #858895;" class="stb-fore-colored">Occurred at: </span>
+                                                                                                            {{ occurred_at }}
+                                                                                                        </span>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                                {% endif %}
+
+                                                                                                {% if link is defined %}
+                                                                                                <span style="text-decoration: underline; font-size: 14px; color: #0062b8;" class="stb-underline stb-fore-colored">
+                                                                                                    <span style="font-weight:normal; font-style:normal; text-decoration:underline; color:#0062B8; " class="stb-underline">
+                                                                                                        <a href="{{ link }}" style="font-weight: normal; font-style: normal; text-decoration: underline; color: #0062b8;" class="stb-fore-colored stb-underline" target="_blank">View full details</a>
+                                                                                                    </span>
+                                                                                                </span>
+                                                                                                <span style="font-size: 14px; color: #0062b8;" class="stb-fore-colored"><span style="font-weight:normal; font-style:normal; text-decoration:underline; color:#0062B8; " class="stb-underline"><a href="{{ link }}" style="font-weight: normal; font-style: normal; text-decoration: underline; color: #0062b8;" class="stb-fore-colored stb-underline" target="_blank"></a></span></span>
+                                                                                                {% endif %}
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:800px;width:800px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="630">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:25px 25px 5px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:800px;">
+                                                                                            <div style="text-align: center;"><span></span><span></span><span style="font-size: 14px; color: #6b6e7b;" class="stb-fore-colored">You received this email because of {{ domain_name }}’s notifications.</span></div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="stb-block-outer">
+                            <table class="stb-block stb-cols-1" border="0" cellpadding="0" cellspacing="0" style="overflow:hidden;margin:0px auto;padding:0px;width:800px;max-width:800px;clear:both;line-height:1.7;border-width:0px;border: 0px;font-size:14px;border:0;box-sizing:border-box;"
+                                width="630">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <table class="stb-cell-wrap" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="text-align:center;font-size:0;">
+                                                            <table class="stb-left-cell" border="0" cellpadding="0" cellspacing="0" style="max-width:800px;width:800px!important;margin:0;vertical-align:top;border-collapse:collapse;box-sizing:border-box;font-size:unset;mso-table-lspace:0pt;mso-table-rspace:0pt;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;"
+                                                                align="left" width="630">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="stb-text-box" style="text-align:left;margin:0px;;line-height:1.7;word-break:break-word;font-size:16px;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color:#000000;clear:both;border:0;mso-line-height-rule-rule:exactly;">
+                                                                            <table class="stb-text-box-inner" border="0" cellpadding="0" cellspacing="0" style="width:100%;">
+                                                                                <tbody>
+                                                                                    <tr>
+                                                                                        <td style="padding:5px 25px 15px 25px;line-height:1.7;word-break:break-word;color:#000000;border:0;font-family:Malgun Gothic, MalgunGothic, malgungothic, 맑은고딕, AppleSDGothic, apple sd gothic neo, noto sans korean, noto sans korean regular, noto sans cjk kr, noto sans cjk, nanum gothic, malgun gothic, dotum, arial, helvetica, MS Gothic, sans-serif!important;;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;width:800px;">
+                                                                                            <div style="text-align: center;"><span></span><span></span><span></span><span style="font-size: 12px; color: #898995;" class="stb-fore-colored">Powered by <span style="font-weight: normal; font-style: normal; text-decoration: underline;" class="stb-underline"><a href="https://cloudforet.io" style="font-weight: normal; font-style: normal; text-decoration: underline; color: #898995;" class="stb-fore-colored stb-underline" target="_blank">Cloudforet</a></span></span>
+                                                                                            </div>
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div style='padding:30.0pt 0cm 30.0pt 0cm'>
+            <p class=MsoNormal align=center style='text-align:center'>
+                <span lang=EN-US>
+                  <o:p>&nbsp;</o:p>
+               </span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>
