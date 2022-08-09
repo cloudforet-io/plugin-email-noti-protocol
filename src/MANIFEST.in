@@ -1,2 +1,2 @@
-include spaceone/notification/templates/alert_notification_include_html_contents.html
+include spaceone/notification/templates/alert_notification_include_html_contents_template.html
 include spaceone/notification/templates/alert_notification_template.html
