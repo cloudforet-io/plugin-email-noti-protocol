@@ -89,7 +89,8 @@ class NotificationService(BaseService):
         else:
             template = env.get_template(self.get_html_template_path('alert_notification_template.html'))
             template_kwargs.update({
-                'description': message.get('description', ''),
+                # 'description': message.get('description', ''),
+                'description': self.set_description(message.get('description', '')),
                 'tags': message.get('tags', [])
             })
 
@@ -104,6 +105,10 @@ class NotificationService(BaseService):
                 template_kwargs.update({'occurred_at': occurred_at})
 
         return template.render(**template_kwargs)
+
+    @staticmethod
+    def set_description(description):
+        return description.replace('\n', '<br/>')
 
     @staticmethod
     def _check_validate_message(message):
