@@ -3,7 +3,7 @@ DEFAULT_SMTP_PORT = 25
 DEFAULT_SMTP_USER = ''
 DEFAULT_SMTP_PASSWORD = ''
 
-SENDER_EMAIL_ADDR = 'no-reply@spaceone.dev'
+SENDER_EMAIL_ADDR = 'no-reply-spaceone@megazone.com'
 
 NOTIFICATION_TYPE_DEFAULT_COLOR = 'rgb(102,56,182)'
 

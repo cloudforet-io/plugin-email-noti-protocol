@@ -48,6 +48,7 @@ class NotificationService(BaseService):
                     - smtp_port
                     - user
                     - password
+                    - from_email
                 - channel_data
                     - email
         """
@@ -65,11 +66,12 @@ class NotificationService(BaseService):
         smtp_port = secret_data.get('smtp_port', DEFAULT_SMTP_PORT)
         user = secret_data.get('user', DEFAULT_SMTP_USER)
         password = secret_data.get('password', DEFAULT_SMTP_PASSWORD)
+        from_email = secret_data.get('password', SENDER_EMAIL_ADDR)
 
         email_list = channel_data.get('email')
 
         noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
-        noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents)
+        noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents, from_email)
 
     def make_contents(self, message, notification_type):
         env = Environment(loader=FileSystemLoader(searchpath="/"))
