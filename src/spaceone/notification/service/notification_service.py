@@ -66,7 +66,7 @@ class NotificationService(BaseService):
         smtp_port = secret_data.get('smtp_port', DEFAULT_SMTP_PORT)
         user = secret_data.get('user', DEFAULT_SMTP_USER)
         password = secret_data.get('password', DEFAULT_SMTP_PASSWORD)
-        from_email = secret_data.get('password', SENDER_EMAIL_ADDR)
+        from_email = secret_data.get('from_email', SENDER_EMAIL_ADDR)
 
         email_list = channel_data.get('email')
 
