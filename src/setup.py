@@ -16,25 +16,21 @@
 
 from setuptools import setup, find_packages
 
-with open('VERSION', 'r') as f:
+with open("VERSION", "r") as f:
     VERSION = f.read().strip()
     f.close()
 
 setup(
-    name='plugin-email-notification-protocol',
+    name="plugin-email-notification-protocol",
     version=VERSION,
-    description='Megazone Email Notification',
-    long_description='',
-    url='https://www.spaceone.dev/',
-    author='MEGAZONE SpaceONE Team',
-    author_email='admin@spaceone.dev',
-    license='Apache License 2.0',
+    description="Megazone Email Notification",
+    long_description="",
+    url="https://www.spaceone.dev/",
+    author="MEGAZONE SpaceONE Team",
+    author_email="admin@spaceone.dev",
+    license="Apache License 2.0",
     packages=find_packages(),
-    install_requires=[
-        'spaceone-core',
-        'spaceone-api',
-        'spaceone-tester',
-    ],
+    install_requires=["spaceone-api"],
     include_package_data=True,
     zip_safe=False,
 )
