@@ -1,16 +1,29 @@
-# plugin-email-notification-protocol
+# plugin-email-noti-protocol
 
-Plugin for Email Protocol
-- Notification through Email
+This plugin delivers e-mail.
 
-Find us also at [Dockerhub](https://hub.docker.com/repository/docker/spaceone/plugin-email-notification-protocol)
-> Latest stable version : 1.0.0
+# Supported API
 
-Please contact us if you need any further information. (<support@spaceone.dev>)
+https://cloudforet-io.github.io/api-doc/notification/plugin/
+
+| Service | Component | Resource | Method |
+| ---     | ---       | ---      | ---    |
+| Notification | plugin | Notification | dispatch |
+| Notification | plugin | Protocol | init |
+| Notification | plugin | Protocol | dispatch |
+
+# Docker Images
+
+https://hub.docker.com/r/cloudforet/plugin-email-noti-protocol
 
 ---
 
-## Release Note
+# Release Note
 
-### Ver 1.0
+## Ver 1.1.4
+
+* Support linux/amd64 and linux/arm64
+* Code clean-up (no feature update)
+
+## Ver 1.1.3
 
