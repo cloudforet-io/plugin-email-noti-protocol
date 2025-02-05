@@ -1,5 +1,6 @@
 import os
 import logging
+from markupsafe import escape
 from jinja2 import Environment, FileSystemLoader
 
 from spaceone.core import utils
@@ -7,7 +8,6 @@ from spaceone.core.service import *
 from spaceone.notification.manager.notification_manager import NotificationManager
 from spaceone.notification.conf.email_conf import *
 from spaceone.notification.error.custom import *
-
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -19,7 +19,7 @@ class NotificationService(BaseService):
         super().__init__(metadata)
 
     @transaction
-    @check_required(['options', 'message', 'notification_type'])
+    @check_required(["options", "message", "notification_type"])
     def dispatch(self, params):
         """
         Args:
@@ -53,81 +53,106 @@ class NotificationService(BaseService):
                     - email
         """
 
-        secret_data = params.get('secret_data', {})
-        channel_data = params.get('channel_data', {})
-        notification_type = params['notification_type']
+        secret_data = params.get("secret_data", {})
+        channel_data = params.get("channel_data", {})
+        notification_type = params["notification_type"]
 
-        params_message = params['message']
-        title = params_message['title']
+        params_message = params["message"]
+        title = params_message["title"]
         self._check_validate_message(params_message)
         contents = self.make_contents(params_message, notification_type)
 
-        smtp_host = secret_data.get('smtp_host', DEFAULT_SMTP_SERVER)
-        smtp_port = secret_data.get('smtp_port', DEFAULT_SMTP_PORT)
-        user = secret_data.get('user', DEFAULT_SMTP_USER)
-        password = secret_data.get('password', DEFAULT_SMTP_PASSWORD)
-        from_email = secret_data.get('from_email', SENDER_EMAIL_ADDR)
+        smtp_host = secret_data.get("smtp_host", DEFAULT_SMTP_SERVER)
+        smtp_port = secret_data.get("smtp_port", DEFAULT_SMTP_PORT)
+        user = secret_data.get("user", DEFAULT_SMTP_USER)
+        password = secret_data.get("password", DEFAULT_SMTP_PASSWORD)
+        from_email = secret_data.get("from_email", SENDER_EMAIL_ADDR)
 
-        email_list = channel_data.get('email')
+        email_list = channel_data.get("email")
 
-        noti_mgr: NotificationManager = self.locator.get_manager('NotificationManager')
-        noti_mgr.dispatch(smtp_host, smtp_port, user, password, email_list, title, contents, from_email)
+        noti_mgr: NotificationManager = self.locator.get_manager("NotificationManager")
+        noti_mgr.dispatch(
+            smtp_host,
+            smtp_port,
+            user,
+            password,
+            email_list,
+            title,
+            contents,
+            from_email,
+        )
 
     def make_contents(self, message, notification_type):
-        env = Environment(loader=FileSystemLoader(searchpath="/"))
+        env = Environment(loader=FileSystemLoader(searchpath="/"), autoescape=True)
         template_kwargs = {
-            'domain_name': message.get('domain_name', ''),
-            'notification_type': notification_type,
-            'notification_type_color': self.get_notification_type_color(notification_type),
-            'title': message.get('title', ''),
-            'callbacks': message.get('callbacks', [])
+            "domain_name": escape(message.get("domain_name", "")),
+            "notification_type": escape(notification_type),
+            "notification_type_color": escape(
+                self.get_notification_type_color(notification_type)
+            ),
+            "title": escape(message.get("title", "")),
+            "callbacks": message.get("callbacks", []),
         }
 
-        if 'content_type' in message and message['content_type'] == 'HTML':
-            template = env.get_template(self.get_html_template_path('alert_notification_include_html_contents_template.html'))
-            template_kwargs.update({
-                'contents': message.get('contents', '')
-            })
+        if "content_type" in message and message["content_type"] == "HTML":
+            template = env.get_template(
+                self.get_html_template_path(
+                    "alert_notification_include_html_contents_template.html"
+                )
+            )
+            template_kwargs.update({"contents": escape(message.get("contents", ""))})
         else:
-            template = env.get_template(self.get_html_template_path('alert_notification_template.html'))
-            template_kwargs.update({
-                # 'description': message.get('description', ''),
-                'description': self.set_description(message.get('description', '')),
-                'tags': message.get('tags', [])
-            })
+            template = env.get_template(
+                self.get_html_template_path("alert_notification_template.html")
+            )
+            template_kwargs.update(
+                {
+                    "description": escape(
+                        self.set_description(message.get("description", ""))
+                    ),
+                    "tags": message.get("tags", []),
+                }
+            )
 
-            if 'image_url' in message:
-                template_kwargs.update({'image_url': message['image_url']})
+            if "image_url" in message:
+                template_kwargs.update({"image_url": escape(message["image_url"])})
 
-        if 'link' in message:
-            template_kwargs.update({'link': message['link']})
+        if "link" in message:
+            template_kwargs.update({"link": escape(message["link"])})
 
-        if 'occurred_at' in message:
-            if occurred_at := self.convert_occurred_at(message['occurred_at']):
-                template_kwargs.update({'occurred_at': occurred_at})
+        if "occurred_at" in message:
+            if occurred_at := self.convert_occurred_at(message["occurred_at"]):
+                template_kwargs.update({"occurred_at": escape(occurred_at)})
 
         return template.render(**template_kwargs)
 
     @staticmethod
     def set_description(description):
-        return description.replace('\n', '<br/>')
+        return description.replace("\n", "<br/>")
 
     @staticmethod
     def _check_validate_message(message):
-        if 'content_type' in message and message['content_type'] not in ['HTML', 'MARKDOWN']:
-            raise ERROR_INVALID_MESSAGE(key='message.content_type', value=message['content_type'])
+        if "content_type" in message and message["content_type"] not in [
+            "HTML",
+            "MARKDOWN",
+        ]:
+            raise ERROR_INVALID_MESSAGE(
+                key="message.content_type", value=message["content_type"]
+            )
 
     @staticmethod
     def get_html_template_path(html_file_name):
         full_path = os.path.split(__file__)[0]
-        split_dir = full_path.split('/')[:-1]
-        split_dir.append('templates')
-        split_dir[0] = '/'                     # root directory
+        split_dir = full_path.split("/")[:-1]
+        split_dir.append("templates")
+        split_dir[0] = "/"  # root directory
         return os.path.join(*split_dir, html_file_name)
 
     @staticmethod
     def get_notification_type_color(notification_type):
-        return NOTIFICATION_TYPE_COLOR_MAP.get(notification_type, NOTIFICATION_TYPE_DEFAULT_COLOR)
+        return NOTIFICATION_TYPE_COLOR_MAP.get(
+            notification_type, NOTIFICATION_TYPE_DEFAULT_COLOR
+        )
 
     @staticmethod
     def convert_occurred_at(occurred_at):
