@@ -1,3 +1,4 @@
 secure-smtplib
 markdown
 jinja2
+grpcio==1.64.1
