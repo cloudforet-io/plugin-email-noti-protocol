@@ -17,6 +17,7 @@ class SMTPConnector(BaseConnector):
         self.smtp = None
 
     def set_smtp(self, host, port, user, password):
+        print(f'$$$ host: {host}, port: {port}, user: {user}, password: {password}')
         self.smtp = smtplib.SMTP(host, port)
         self.smtp.connect(host, port)
         self.smtp.ehlo()
